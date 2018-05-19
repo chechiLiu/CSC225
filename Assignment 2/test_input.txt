@@ -1,0 +1,20 @@
+64000
+0 add 6 3
+0 add 11 1
+0 add 10 4
+0 add 17 5
+0 add 14 6
+0 add 12 7 
+0 renice 6 111
+0 renice 10 10
+0 renice 17 1
+0 renice 11 -111
+0 renice 17 1000
+0 renice 14 10
+0 renice 12 -111
+4 add 225 6
+4 add 18 8
+4 add 2 5
+4 renice 225 2
+7 kill 225
+9 renice 10 32
