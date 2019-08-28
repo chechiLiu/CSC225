@@ -1,18 +1,10 @@
-/* A5Algorithms.java
-   CSC 225 - Summer 2017
-   Programming Assignment 3 - Image Algorithms
-
-
-   B. Bird - 07/03/2017
-*/ 
-
-//Che-Chi Jack Liu
+//Che-Chi (Jack) Liu
 //V00850558
-   
+
 import java.awt.Color;
 import java.util.*;
 
-public class A3Algorithms{
+public class A3Algorithms {
 	/* FloodFillDFS(v, viewer, fillColour)
 	   Traverse the component the vertex v using DFS and set the colour 
 	   of the pixels corresponding to all vertices encountered during the 
@@ -22,10 +14,10 @@ public class A3Algorithms{
 	   colour c, use
 			viewer.setPixel(x,y,c);
 	*/
-	public static void FloodFillDFS(PixelVertex v, ImageViewer225 viewer, Color fillColour){
+	public static void FloodFillDFS(PixelVertex v, ImageViewer225 viewer, Color fillColour) {
 		v.visited();
 		viewer.setPixel(v.getX(), v.getY(), fillColour);
-
+		
 		for(PixelVertex p: v.getNeighbours()) {
 			if(p.visitValue()) {
 				FloodFillDFS(p, viewer, fillColour);
@@ -42,13 +34,13 @@ public class A3Algorithms{
 	   colour c, use
 			viewer.setPixel(x,y,c);
 	*/
-	public static void FloodFillBFS(PixelVertex v, ImageViewer225 viewer, Color fillColour){
+	public static void FloodFillBFS(PixelVertex v, ImageViewer225 viewer, Color fillColour) {
 		Queue<PixelVertex> queue = new LinkedList<PixelVertex>();
 		queue.add(v);
 		v.visited();
 			
 		while(queue.peek() != null) {
-			PixelVertex r = queue.remove();	
+			PixelVertex r = queue.remove();
 			viewer.setPixel(r.getX(), r.getY(), fillColour);
 			for(PixelVertex p: r.getNeighbours()) {
 				if(p.visitValue()) {
@@ -68,12 +60,12 @@ public class A3Algorithms{
 	   colour c, use
 			viewer.setPixel(x,y,c);
 	*/
-	public static void OutlineRegionDFS(PixelVertex v, ImageViewer225 viewer, Color outlineColour){
+	public static void OutlineRegionDFS(PixelVertex v, ImageViewer225 viewer, Color outlineColour) {
 		v.visited();
-		if (v.getDegree() < 4) {
+		if(v.getDegree() < 4) {
 			viewer.setPixel(v.getX(), v.getY(), outlineColour);
 		}	
-
+			
 		for(PixelVertex p: v.getNeighbours()) {
 			if(p.visitValue()) {
 				OutlineRegionDFS(p, viewer, outlineColour);
@@ -90,7 +82,7 @@ public class A3Algorithms{
 	   colour c, use
 			viewer.setPixel(x,y,c);
 	*/
-	public static void OutlineRegionBFS(PixelVertex v, ImageViewer225 viewer, Color outlineColour){
+	public static void OutlineRegionBFS(PixelVertex v, ImageViewer225 viewer, Color outlineColour) {
 		Queue<PixelVertex> queue = new LinkedList<PixelVertex>();
 		queue.add(v);
 		v.visited();
@@ -108,7 +100,7 @@ public class A3Algorithms{
 			}
 		}
 	}
-
+	
 	public static void RecursiveDFS (PixelGraph G, int[][] array, int componentNum, PixelVertex v) {
 		array[v.getX()][v.getY()] = componentNum;
 		for(PixelVertex p: v.getNeighbours()) {
@@ -117,11 +109,12 @@ public class A3Algorithms{
 			}
 		}
 	}
+	
 	/* CountComponents(G)
 	   Count the number of connected components in the provided PixelGraph 
 	   object.
 	*/
-	public static int CountComponents(PixelGraph G){
+	public static int CountComponents(PixelGraph G) {
 		int[][] array = new int[G.getHeight()][G.getWidth()];
 		for(int[] i: array) {
 			Arrays.fill(i, -1);
@@ -136,6 +129,7 @@ public class A3Algorithms{
 				}
 			}
 		}
+		
 		return componentNum;
 	}
 }
