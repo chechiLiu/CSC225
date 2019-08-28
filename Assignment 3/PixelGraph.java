@@ -1,16 +1,9 @@
-/* PixelGraph.java
-   CSC 225 - Summer 2017
-   Programming Assignment 3 - Pixel Graph Data Structure
-
-   B. Bird - 07/03/2017
-*/ 
-
-//Che-Chi Jack Liu
+//Che-Chi (Jack) Liu
 //V00850558
 
 import java.awt.Color;
 
-public class PixelGraph{
+public class PixelGraph {
 	private PixelVertex[][] input;
 	
 	/* PixelGraph constructor
@@ -18,7 +11,7 @@ public class PixelGraph{
 	   of the pixel at position (x,y) in the image), initialize the data
 	   structure to contain the pixel graph of the image. 
 	*/
-	public PixelGraph(Color[][] imagePixels){
+	public PixelGraph(Color[][] imagePixels) {
 		input = new PixelVertex[imagePixels.length][imagePixels[0].length];
 		
 		for(int column = 0; column < imagePixels[0].length; column++) {
@@ -58,7 +51,6 @@ public class PixelGraph{
 				
 				input[i+1][imagePixels[0].length-1].addNeighbour(input[i][imagePixels[0].length-1]);
 			}
-		
 		}
 	}
 	
@@ -69,7 +61,7 @@ public class PixelGraph{
 	   assume that the provided (x,y) pair is always a valid point in the 
 	   image).
 	*/
-	public PixelVertex getPixelVertex(int x, int y){
+	public PixelVertex getPixelVertex(int x, int y) {
 		return input[x][y];
 	}
 	
@@ -77,7 +69,7 @@ public class PixelGraph{
 	   Return the width of the image corresponding to this PixelGraph 
 	   object.
 	*/
-	public int getWidth(){
+	public int getWidth() {
 		return input[0].length;
 	}
 	
@@ -85,8 +77,7 @@ public class PixelGraph{
 	   Return the height of the image corresponding to this PixelGraph 
 	   object.
 	*/
-	public int getHeight(){
+	public int getHeight() {
 		return input.length;
 	}
-	
 }
