@@ -5,7 +5,6 @@
 
 import java.io.*;
 import java.util.*;
-import java.util.ArrayList;
 
 public class Aggregate {
 	public static String[] data;
