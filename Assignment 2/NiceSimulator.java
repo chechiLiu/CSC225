@@ -1,13 +1,13 @@
-//Che-Chi Jack Liu
+//Che-Chi (Jack) Liu
 //V00850558
 
+//The NiceSimulator data structure.
 
 import java.io.*;
 import java.util.*;
 import java.lang.*;
 
 public class NiceSimulator{
-
 	public static final int SIMULATE_IDLE = -2;
 	public static final int SIMULATE_NONE_FINISHED = -1;
 	
@@ -37,14 +37,14 @@ public class NiceSimulator{
 	   of task indices.
 	
 	*/
-	public boolean taskValid(int taskID){
+	public boolean taskValid(int taskID) {
 		Integer value = time.get(taskID);
-
-		if ((taskID >= 0 && taskID <= max-1)) {
-			if (value == null) {
+		
+		if((taskID >= 0 && taskID <= max-1)) {
+			if(value == null) {
 				return false;
 			} 
-			else if (value >= 1){
+			else if(value >= 1) {
 				return true;
 			}
 		}
@@ -58,15 +58,14 @@ public class NiceSimulator{
 		
 		int minValueInMap = Collections.min(map.values());
 
-        for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
-        	if (entry.getValue() == minValueInMap && entry.getKey() < min) {
-            	min = entry.getKey();
-            }
+        	for(Map.Entry<Integer, Integer> entry : map.entrySet()) {
+        		if(entry.getValue() == minValueInMap && entry.getKey() < min) {
+            			min = entry.getKey();
+            		}
  		}
-
+		
    		return min;
 	}
-	
 	
 	/* getPriority(taskID)
 	   Return the current priority value for the provided
@@ -74,7 +73,7 @@ public class NiceSimulator{
 	   is valid.
 	
 	*/
-	public int getPriority(int taskID){
+	public int getPriority(int taskID) {
 		return priority.get(taskID);
 	}
 	
@@ -84,10 +83,9 @@ public class NiceSimulator{
 	   that the task ID provided is valid.
 	
 	*/
-	public int getRemaining(int taskID){
+	public int getRemaining(int taskID) {
 		return time.get(taskID);
 	}
-	
 	
 	/* add(taskID, time_required)
 	   Add a task with the provided task ID and time requirement
@@ -95,34 +93,30 @@ public class NiceSimulator{
 	   the correct range and is not a currently-active task.
 	   The new task will be assigned nice level 0.
 	*/
-	public void add(int taskID, int time_required){
+	public void add(int taskID, int time_required) {
 		time.put(taskID, time_required);
 		priority.put(taskID, 0);
 	}
-	
 	
 	/* kill(taskID)
 	   Delete the task with the provided task ID from the system.
 	   You may assume that the provided task ID is in the correct
 	   range and is a currently-active task.
 	*/
-	public void kill(int taskID){
+	public void kill(int taskID) {
 		time.remove(taskID);
 		priority.remove(taskID);
 	}
-	
 	
 	/* renice(taskID, new_priority)
 	   Change the priority of the the provided task ID to the new priority
        value provided. The change must take effect at the next simulate() step.
 	   You may assume that the provided task ID is in the correct
 	   range and is a currently-active task.
-	
 	*/
-	public void renice(int taskID, int new_priority){
+	public void renice(int taskID, int new_priority) {
 		priority.put(taskID, new_priority);
 	}
-
 	
 	/* simulate()
 	   Run one step of the simulation:
@@ -137,8 +131,8 @@ public class NiceSimulator{
 		   it has finished, so remove it from the system and return its task ID.
 		 - If the task did not finish, return SIMULATE_NONE_FINISHED.
 	*/
-	public int simulate(){
-		if (time.isEmpty()) {
+	public int simulate() {
+		if(time.isEmpty()) {
 			return SIMULATE_IDLE;
 		}
 
