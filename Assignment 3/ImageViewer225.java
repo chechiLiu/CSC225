@@ -40,14 +40,13 @@ import java.awt.event.MouseEvent;
 
 import javax.swing.border.EtchedBorder;
 
-
-
 import java.awt.event.MouseWheelListener;
 import java.awt.event.MouseWheelEvent;
 import javax.swing.Action;
 import javax.swing.AbstractAction;
 import javax.swing.KeyStroke;
 
+//Provided
 public class ImageViewer225 {
 
 	private JFrame viewerWindow;
@@ -497,4 +496,3 @@ public class ImageViewer225 {
 	}
 
 }
-
