@@ -8,10 +8,6 @@
    B. Bird - 06/11/2017
 */
 
- //Che-Chi Jack Liu
-//V00850558
-
-
 import java.io.*;
 import java.util.LinkedList;
 
@@ -20,6 +16,7 @@ import java.util.LinkedList;
    as long as its outward behavior is the same when you hand it in.
 */
 
+//Provided
 public class Nice{
 
 	private static abstract class NiceOp{
