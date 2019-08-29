@@ -2,7 +2,6 @@
 //V00850558
 
 //Reads a CVS file and performs one of the 3 aggregate functions(‘count’, ‘sum’, or ‘avg‘) on a column from the input CVS file.
-//The worst case running time of the entire program is O(n log2 n) for an input with n rows.
 
 import java.io.*;
 import java.util.*;
